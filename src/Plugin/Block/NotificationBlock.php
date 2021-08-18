@@ -9,7 +9,7 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "pantheon_autopilot_demo_notification",
- *   admin_label = @Translation("Notification"),
+ *   admin_label = @Translation("PAD Notification"),
  *   category = @Translation("Pantheon Autopilot Demo"),
  *   label_display = false
  * )
@@ -25,10 +25,14 @@ class NotificationBlock extends BlockBase {
     $content = $this->t('Check out our latest blog posts for the latest news!');
     $markup = "<div class='container'>$content</div>";
 
-    $build['content'] = [
+    return [
       '#markup' => $markup,
+      '#attached' => [
+        'library' => [
+          'pantheon_autopilot_demo/style.block',
+        ]
+      ],
     ];
-    return $build;
   }
 
 }
