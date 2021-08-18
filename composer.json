@@ -1,0 +1,13 @@
+{
+  "name": "pantheon-se/pantheon_autopilot_demo",
+  "description": "Simple demo to showcase Pantheon Autopilot VRT detection",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Kyle Taylor (kyletaylored)",
+      "homepage": "https://www.drupal.org/u/kyletaylored",
+      "role": "Maintainer"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+pantheon_:
+  version: VERSION
+  css:
+    css/style.css: {}
