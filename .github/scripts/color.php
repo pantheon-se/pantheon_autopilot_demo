@@ -39,7 +39,7 @@ function getContrastColor($hexColor)
         }
 }
 
-$bg_color = '#' . substr(base_convert(time(), 10, 16), 6);
+$bg_color = '#' . substr(base_convert(time(), 10, 16), -6);
 $text_color = getContrastColor($bg_color);
 
 $style = <<<STYLE
