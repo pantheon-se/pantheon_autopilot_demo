@@ -1,0 +1,43 @@
+name: Push a new tag every 4 hours.
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 6 * * 0'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Generate contrast colors
+      id: contrast-colors
+      run: |
+        COLORS=$(php .github/scripts/color.php)
+        echo "::set-output name=bg::$(echo $COLORS | jq -r '.bg')"
+        echo "::set-output name=text::$(echo $COLORS | jq -r '.text')"
+
+    - name: Get latest tag
+      id: latest-tag
+      run: |
+        echo "::set-output name=tag::$(php .github/scripts/tag.php)"
+    
+    - name: Test tag
+      id: tag-test
+      run: |
+        echo ${{ steps.latest-tag.outputs.tag }}
+        echo ${{ steps.contrast-colors.outputs.bg }}
+        echo ${{ steps.contrast-colors.outputs.text }}
+        
+
+    # - uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: ${{ steps.last-commit-message.outputs.msg }}
+    #     tagging_message: 'v1.0.0'
+    #     push_options: '--force --tags'
+    #     skip_fetch: true
