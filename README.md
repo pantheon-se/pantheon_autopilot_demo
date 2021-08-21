@@ -1,6 +1,6 @@
 # Pantheon Autopilot Demo
 
-A simple Drupal module that provides a block for testing Autopilot VRT.
+A simple Drupal module that provides a block for testing Autopilot VRT. This module will update itself every 4 hours, Mon - Friday from 7am to 7pm Eastern time.
 
 ## How to use
 
