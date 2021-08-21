@@ -53,7 +53,7 @@ $style = <<<STYLE
 STYLE;
 
 // Write new style
-$file = '../../css/style.css';
+$file = 'css/style.css';
 file_put_contents($file, $style);
 
 echo json_encode(['bg' => $bg_color, 'text' => $text_color]);

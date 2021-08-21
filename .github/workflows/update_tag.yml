@@ -38,11 +38,8 @@ jobs:
         echo "Tag: ${{ steps.latest-tag.outputs.tag }}"
         echo "Background color: ${{ steps.contrast-colors.outputs.bg }}"
         echo "Text color: ${{ steps.contrast-colors.outputs.text }}"
-        
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "Auto-update tag: ${{ steps.last-commit-message.outputs.msg }}"
+        commit_message: "Auto-update tag: ${{ steps.latest-tag.outputs.tag }}"
         tagging_message: ${{ steps.latest-tag.outputs.tag }}
-        push_options: '--force --tags'
-        skip_fetch: true
