@@ -30,15 +30,14 @@ jobs:
       id: latest-tag
       run: |
         TAG=$(php .github/scripts/tag.php)
-        echo $TAG
         echo "::set-output name=tag::$(echo $TAG)"
     
     - name: Test tag
       id: tag-test
       run: |
-        echo ${{ steps.latest-tag.outputs.tag }}
-        echo ${{ steps.contrast-colors.outputs.bg }}
-        echo ${{ steps.contrast-colors.outputs.text }}
+        echo "Tag: ${{ steps.latest-tag.outputs.tag }}"
+        echo "Background color: ${{ steps.contrast-colors.outputs.bg }}"
+        echo "Text color: ${{ steps.contrast-colors.outputs.text }}"
         
 
     # - uses: stefanzweifel/git-auto-commit-action@v4
