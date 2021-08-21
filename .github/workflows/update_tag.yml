@@ -29,8 +29,8 @@ jobs:
     - name: Get latest tag
       id: latest-tag
       run: |
-        php .github/scripts/tag.php
-        echo "::set-output name=tag::$(echo $TAG)"
+        NEW_TAG=$(php .github/scripts/tag.php)
+        echo "::set-output name=tag::$(echo $NEW_TAG | jq -r '.tag')"
     
     - name: Test tag
       id: tag-test
