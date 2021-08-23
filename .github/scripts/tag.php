@@ -15,7 +15,7 @@ if ($github = getenv('GITHUB_CONTEXT')) {
         ]
     ];
     $context = stream_context_create($opts);
-    $content = json_decode(file_get_contents("{$github['api_url']}/{$github['repository']}/tags", false, $context), true);
+    $content = json_decode(file_get_contents("{$github['api_url']}/repos/{$github['repository']}/tags", false, $context), true);
 
     // Extract tag and update by 1.
     $latest_tag = $content[0]['name'];
