@@ -3,7 +3,7 @@ type: module
 description: Simple demo to showcase Pantheon Autopilot VRT detection.
 package: Custom
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 dependencies:
   - drupal:block
 libraries:
